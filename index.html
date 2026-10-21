@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shantastic.Boutique</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Fuentes de Google: Playfair Display (Serif), Dancing Script (Cursiva), e Inter (Texto normal) -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Encabezado -->
+    <header>
+        <div class="nav-links">
+            <a href="#mujer">Mujer</a>
+            <a href="#hombre">Hombre</a>
+            <a href="#ninos">Niños</a>
+        </div>
+        <div class="logo">
+            <img src="Shantastic_logo.jpeg" alt="Logo Shantastic Boutique" class="logo-img">
+            <h1>Shantastic.Boutique</h1>
+        </div>
+        <div class="header-icons">
+            <i class="fas fa-search"></i>
+            <i class="far fa-heart"></i>
+            <i class="fas fa-shopping-bag" id="cart-icon"></i>
+            <span id="cart-count">0</span>
+        </div>
+    </header>
+
+    <!-- Sección Hero / Bienvenidos -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2 class="cursive-title">Bienvenid@s Shantastic@s</h2>
+            <p>Descubre prendas únicas, cuidadosamente seleccionadas para ti. Moda sostenible y piezas nuevas que te harán brillar con un estilo muy chic.</p>
+            <div class="social-links">
+                <a href="https://www.instagram.com/shantastic.boutique" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+                <a href="https://www.tiktok.com/@shantastic.boutique" target="_blank"><i class="fab fa-tiktok"></i> TikTok</a>
+                <a href="https://wa.me/573172346013" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            </div>
+            <button class="shop-now-btn">Comprar Ahora</button>
+        </div>
+        <div class="hero-images">
+            <!-- Imagen de Shantal con forma de arco -->
+            <img src="Shantal.jpeg" alt="Shantal, nuestra musa y modelo" class="arch-img">
+        </div>
+    </section>
+
+    <!-- Filtros -->
+    <section class="filters-section">
+        <h3>Filtra tu estilo</h3>
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">Todo</button>
+            <button class="filter-btn" data-filter="mujer">Mujer</button>
+            <button class="filter-btn" data-filter="hombre">Hombre</button>
+            <button class="filter-btn" data-filter="ninos">Niños</button>
+            <select id="size-filter" class="filter-select">
+                <option value="all">Todas las tallas</option>
+                <option value="S">S</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+            </select>
+            <select id="condition-filter" class="filter-select">
+                <option value="all">Condición (Nueva/Segunda)</option>
+                <option value="nueva">Nueva</option>
+                <option value="segunda">Segunda Mano</option>
+            </select>
+        </div>
+    </section>
+
+    <!-- Grilla de Productos -->
+    <section class="products-grid" id="product-container">
+        <!-- Los productos se cargarán aquí con JavaScript -->
+    </section>
+
+    <!-- Modal del Producto (Detalles y más fotos) -->
+    <div id="product-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-layout">
+                <div class="modal-gallery">
+                    <img id="main-modal-img" src="" alt="Producto principal">
+                    <div class="thumbnail-gallery" id="modal-thumbnails">
+                        <!-- Miniaturas se inyectan aquí -->
+                    </div>
+                </div>
+                <div class="modal-details">
+                    <h2 id="modal-title">Nombre del Producto</h2>
+                    <p id="modal-condition" class="condition-badge">Condición</p>
+                    <p id="modal-price" class="price">$0.00</p>
+                    <div class="description">
+                        <h3>Descripción</h3>
+                        <p id="modal-desc">Descripción detallada del producto...</p>
+                        <p><strong>Talla:</strong> <span id="modal-size">M</span></p>
+                    </div>
+                    <button id="modal-add-to-cart" class="add-to-cart-btn">Añadir al Carrito</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Carrito de Compras Lateral -->
+    <div id="cart-sidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h2>Tu Carrito</h2>
+            <span id="close-cart" class="close-cart">&times;</span>
+        </div>
+        <div class="cart-items" id="cart-items-container">
+            <!-- Items del carrito -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cart-total-price">$0</span>
+            </div>
+            <button class="checkout-btn">Pagar</button>
+            <div class="payment-methods">
+                <i class="fab fa-cc-visa"></i>
+                <i class="fab fa-cc-mastercard"></i>
+                <i class="fab fa-cc-paypal"></i>
+                <i class="fas fa-money-bill-wave"></i>
+            </div>
+        </div>
+    </div>
+
+    <div id="cart-overlay" class="overlay"></div>
+
+    <!-- Pie de página -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Shantastic.Boutique</h4>
+                <p>Moda circular y chic para todos.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Enlaces</h4>
+                <a href="#">Términos y Condiciones</a>
+                <a href="#">Políticas de Devolución</a>
+                <a href="#">Contacto</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Creado por <strong>Dansel Samudio y Richard Mendieta</strong> &copy; 2026</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
